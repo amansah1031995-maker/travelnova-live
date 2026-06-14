@@ -11,7 +11,7 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         
-        /* Premium Navigation Header */
+        /* Header Navigation */
         header {
             display: flex;
             justify-content: space-between;
@@ -31,13 +31,13 @@
         
         .support-btn { background: #e6f4ff; color: #0066cc; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 6px; }
 
-        /* Premium Hero Banner Section */
+        /* Hero Banner Section */
         .hero {
             background: linear-gradient(180deg, #0f2b5c 0%, #153d82 100%);
             padding: 70px 20px;
             text-align: center;
             color: white;
-            min-height: 360px;
+            min-height: 380px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -46,68 +46,21 @@
         .hero h1 { font-size: 38px; font-weight: 700; margin-bottom: 12px; max-width: 850px; letter-spacing: -0.5px; }
         .hero p { font-size: 16px; color: #cbd5e1; margin-bottom: 35px; max-width: 700px; opacity: 0.95; }
 
-        /* Bulletproof Interactive Search Form Box */
+        /* Search Widget Container */
         .search-box-container {
             width: 100%;
             max-width: 1000px;
             background: #ffffff;
             border-radius: 14px;
-            padding: 20px;
+            padding: 12px;
             box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-            margin-bottom: -110px;
+            margin-bottom: -120px;
             z-index: 10;
-        }
-        .search-form-inside {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            text-align: left;
-        }
-        .input-group {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: #f1f5f9;
-            padding: 10px 15px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-        }
-        .input-group label {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #64748b;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .input-group input {
-            background: transparent;
-            border: none;
-            outline: none;
-            font-size: 15px;
-            font-weight: 600;
-            color: #1e293b;
-            width: 100%;
-        }
-        .search-submit-btn {
-            background: linear-gradient(90deg, #ff7a00 0%, #ff5500 100%);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(255,122,0,0.3);
-            height: 58px;
-        }
-        .search-submit-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(255,122,0,0.4);
+            min-height: 90px;
         }
 
-        /* Premium Services Section */
-        .services-section { padding: 150px 5% 40px; background: #f8fafc; text-align: center; }
+        /* Services Grid Section */
+        .services-section { padding: 160px 5% 40px; background: #f8fafc; text-align: center; }
         .section-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; color: #1e293b; }
         .section-subtitle { font-size: 14px; color: #64748b; margin-bottom: 45px; }
         
@@ -124,7 +77,7 @@
         .service-card h3 { font-size: 19px; color: #1e293b; margin-bottom: 8px; font-weight: 700; }
         .service-card p { color: #64748b; font-size: 13.5px; line-height: 1.6; }
 
-        /* Exclusive WhatsApp Banner Layout */
+        /* Exclusive WhatsApp Banner */
         .promo-banner {
             max-width: 1000px;
             margin: 45px auto 20px;
@@ -152,8 +105,6 @@
         .footer-links a:hover { color: #cc723b; }
         
         @media (max-width: 768px) {
-            .search-form-inside { flex-direction: column; gap: 10px; }
-            .input-group, .search-submit-btn { width: 100%; }
             .services-grid { flex-direction: column; }
             .promo-banner { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
             .promo-text { padding-right: 0; }
@@ -164,15 +115,13 @@
 <body>
 
     <header>
-        <a href="https://search.travelnova.live" class="logo-container">
-            <div class="logo-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-5.243 4.257-9.5 9.5-9.5s9.5 4.257 9.5 9.5-4.257 9.5-9.5 9.5-9.5-4.257-9.5-9.5zm1.5 0c0 4.411 3.589 8 8 8s8-3.589 8-8-3.589-8-8-8-8 3.589-8 8zm9.5-4.5l4.5 4.5-4.5 4.5v-3h-5v-3h5v-3z"/></svg>
-            </div>
+        <a href="#" class="logo-container">
+            <div class="logo-icon">🚀</div>
             <div class="logo-text">Travel<span>Nova</span></div>
         </a>
         <nav>
-            <a href="https://search.travelnova.live">✈️ Flights</a>
-            <a href="https://search.travelnova.live">🏨 Hotels</a>
+            <a href="#">✈️ Flights</a>
+            <a href="#">🏨 Hotels</a>
             <a href="#bus-section">🚌 Bus Tickets</a>
             <a href="#cab-section">🚖 Cabs</a>
         </nav>
@@ -186,21 +135,7 @@
         <p>Connecting you to 100+ global airlines and premium hotel networks at the best rates.</p>
         
         <div class="search-box-container">
-            <div class="search-form-inside">
-                <div class="input-group">
-                    <label>📍 From</label>
-                    <input type="text" value="Patna (PAT)" readonly>
-                </div>
-                <div class="input-group">
-                    <label>🎯 To</label>
-                    <input type="text" placeholder="Where are you going?" readonly onclick="window.location.href='https://search.travelnova.live'">
-                </div>
-                <div class="input-group">
-                    <label>📅 Depart</label>
-                    <input type="text" placeholder="Select Date" readonly onclick="window.location.href='https://search.travelnova.live'">
-                </div>
-                <button class="search-submit-btn" onclick="window.location.href='https://search.travelnova.live'">Search Flights</button>
-            </div>
+            <script async src="https://tpwidg.com/content?currency=usd&trs=539620&shmarker=739406&show_hotels=true&powered_by=true&locale=en&searchUrl=search.travelnova.live&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
         </div>
     </section>
 
@@ -234,7 +169,7 @@
     </section>
 
     <footer>
-        <a href="https://search.travelnova.live" class="footer-logo">🚀 TravelNova</a>
+        <a href="#" class="footer-logo">🚀 TravelNova</a>
         <div>© 2026 TravelNova. All rights reserved. Made for smart travelers.</div>
         <div class="footer-links">
             <a href="#">Privacy Policy</a>
