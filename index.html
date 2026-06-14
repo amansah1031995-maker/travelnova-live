@@ -3,261 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelNova - Compare & Book Flights, Hotels & Bus Tickets</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-        }
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(30, 41, 59, 0.85) 100%), 
-                        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body class="text-slate-800">
-
-    <header class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-orange-600 rounded-xl flex items-center justify-center shadow-md">
-                    <i class="fa-solid fa-paper-plane text-white text-lg"></i>
-                </div>
-                <span class="text-2xl font-bold tracking-tight text-slate-900">Travel<span class="text-orange-600">Nova</span></span>
-            </div>
-            <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
-                <a href="#search-section" class="hover:text-orange-600 transition-colors"><i class="fa-solid fa-plane mr-2 text-slate-400"></i>Flights</a>
-                <a href="#search-section" class="hover:text-orange-600 transition-colors"><i class="fa-solid fa-hotel mr-2 text-slate-400"></i>Hotels</a>
-                <a href="#services-section" class="hover:text-orange-600 transition-colors"><i class="fa-solid fa-bus mr-2 text-slate-400"></i>Bus Tickets</a>
-                <a href="#services-section" class="hover:text-orange-600 transition-colors"><i class="fa-solid fa-car mr-2 text-slate-400"></i>Cabs</a>
-            </nav>
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="hidden sm:flex items-center gap-2 text-sm font-semibold bg-emerald-50 text-emerald-700 px-4 h-11 rounded-xl border border-emerald-200 hover:bg-emerald-100 transition-all">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> 24/7 Support
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="search-section" class="hero-bg text-white pt-16 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            <div class="max-w-4xl mx-auto text-center mb-12 relative z-10">
-                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
-                    Compare & Book Cheapest Flights & Hotels Instantly
-                </h1>
-                <p class="text-slate-200 text-lg sm:text-xl font-light">
-                    Connecting you to 100+ global airlines and premium hotel networks at the best rates.
-                </p>
-            </div>
-
-            <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl p-2 sm:p-4 text-slate-900 relative z-10 border border-white/10">
-                <div id="tpwl-search"></div>
-            </div>
-        </section>
-
-        <section id="services-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-3">Explore Premium Services ✨</h2>
-                <p class="text-slate-500 text-lg max-w-2xl mx-auto">Everything you need for a perfectly curated hassle-free holiday experience.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="service-card bg-white p-8 rounded-2xl border border-slate-100 transition-all duration-300 relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-orange-600"></div>
-                    <span class="absolute top-4 right-4 bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1 rounded-full tracking-wide uppercase shadow-sm">Up To 20% Off</span>
-                    <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
-                        <i class="fa-solid fa-bus"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Bus Bookings</h3>
-                    <p class="text-slate-500 leading-relaxed">Intercity bus travel across 10,000+ routes at guaranteed lowest prices. Smart routes & premium fleet tracking coming soon.</p>
-                </div>
-
-                <div class="service-card bg-white p-8 rounded-2xl border border-slate-100 transition-all duration-300 relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-slate-400"></div>
-                    <span class="absolute top-4 right-4 bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full tracking-wide uppercase shadow-sm">Coming Soon</span>
-                    <div class="w-14 h-14 bg-slate-50 text-slate-500 rounded-xl flex items-center justify-center mb-6 text-2xl">
-                        <i class="fa-solid fa-car"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Cab Rentals</h3>
-                    <p class="text-slate-500 leading-relaxed">Hourly city rentals, outstation round-trips, and airport transfers with top-rated professional drivers at your fingertips.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-5xl mx-auto bg-gradient-to-r from-orange-600 to-amber-700 rounded-3xl p-8 sm:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-                <div class="relative z-10 text-center md:text-left">
-                    <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase">Exclusive Benefit</span>
-                    <h3 class="text-2xl sm:text-3xl font-bold mt-4 mb-2">Need Custom Tour Packages?</h3>
-                    <p class="text-orange-100 max-w-md">Connect directly with our experts on WhatsApp to design personalized itineraries at unbeatable group rates.</p>
-                </div>
-                <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="relative z-10 bg-white text-orange-700 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-orange-50 transition-all inline-flex items-center gap-2 whitespace-nowrap">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> Chat With Expert
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-white border-t border-slate-100 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center text-white text-sm">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </div>
-                <span class="text-lg font-bold text-slate-900">TravelNova</span>
-            </div>
-            <p class="text-sm text-slate-400 font-medium text-center sm:text-left">&copy; 2026 TravelNova. All rights reserved. Made for smart travelers.</p>
-            <div class="flex items-center gap-6 text-slate-400 text-sm font-medium">
-                <a href="#" class="hover:text-orange-600">Privacy Policy</a>
-                <a href="#" class="hover:text-orange-600">Terms of Service</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        window.tpwl_config = {
-            "white_label_host": "search.travelnova.live",
-            "locale": "en",
-            "currency": "inr",
-            "search_target": "_self",
-            "active_tab": "flights"
-        };
-    </script>
-    <script src="https://whitelabel.travelpayouts.com/widgets/main.js?v=2" async></script>
-
-</body>
-</html>
-[10:14 pm, 14/6/2026] Aman Sah: <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelNova - Compare & Book Cheapest Flights & Hotels</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-family/official-google-fonts">
     <style>
         :root {
             --primary-orange: #ff7a00;
-            --dark-overlay: rgba(0, 0, 0, 0.4);
+            --theme-blue: #0b2265;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         
-        /* Premium Header Styling */
+        /* Premium Navigation Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            padding: 14px 5%;
             background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-size: 24px; font-weight: 700; color: #111; text-decoration: none; display: flex; align-items: center; }
-        .logo span { color: var(--primary-orange); }
+        .logo-container { display: flex; align-items: center; text-decoration: none; color: #111; font-weight: 700; font-size: 24px; }
+        .logo-icon { color: #d9383a; margin-right: 8px; font-size: 24px; display: flex; align-items: center; }
+        .logo-text span { color: #d9383a; }
         
-        nav a { margin: 0 15px; text-decoration: none; color: #555; font-weight: 500; transition: 0.3s; }
-        nav a:hover, nav a.active { color: var(--primary-orange); }
+        nav { display: flex; align-items: center; }
+        nav a { margin: 0 14px; text-decoration: none; color: #4a5568; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 4px; transition: 0.2s; }
+        nav a:hover { color: #d9383a; }
         
-        .support-btn { background: #e6f7ff; color: #007bff; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .support-btn { background: #e6f4ff; color: #0066cc; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 6px; }
 
-        /* Premium Mountain Hero Section */
+        /* Premium Hero Banner Section */
         .hero {
-            position: relative;
-            min-height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background: linear-gradient(180deg, #0f2b5c 0%, #153d82 100%);
+            padding: 70px 20px;
+            text-align: center;
+            color: white;
+            min-height: 360px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            color: white;
-            padding: 40px 20px;
         }
-        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 18px; margin-bottom: 40px; max-w: 600px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 38px; font-weight: 700; margin-bottom: 12px; max-width: 850px; letter-spacing: -0.5px; }
+        .hero p { font-size: 16px; color: #cbd5e1; margin-bottom: 35px; max-width: 700px; opacity: 0.95; }
 
-        /* Search Widget Container */
-        .search-container {
+        /* Bulletproof Interactive Search Form Box */
+        .search-box-container {
             width: 100%;
-            max-width: 1050px;
-            background: rgba(255, 255, 255, 0.96);
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            color: #111;
+            max-width: 1000px;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+            margin-bottom: -110px;
+            z-index: 10;
+        }
+        .search-form-inside {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            text-align: left;
+        }
+        .input-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #f1f5f9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .input-group label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .input-group input {
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e293b;
+            width: 100%;
+        }
+        .search-submit-btn {
+            background: linear-gradient(90deg, #ff7a00 0%, #ff5500 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(255,122,0,0.3);
+            height: 58px;
+        }
+        .search-submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(255,122,0,0.4);
         }
 
-        /* Services Section */
-        .services-section { padding: 60px 5%; background: #f9f9f9; text-align: center; }
-        .section-title { font-size: 28px; font-weight: 700; margin-bottom: 40px; color: #222; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        /* Premium Services Section */
+        .services-section { padding: 150px 5% 40px; background: #f8fafc; text-align: center; }
+        .section-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; color: #1e293b; }
+        .section-subtitle { font-size: 14px; color: #64748b; margin-bottom: 45px; }
         
-        .service-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); text-align: left; position: relative; border: 1px solid #eee; }
-        .badge { position: absolute; top: 15px; right: 15px; font-size: 11px; padding: 4px 10px; border-radius: 20px; font-weight: 700; }
-        .badge.discount { background: #e6fffa; color: #319795; }
-        .badge.soon { background: #fff5f5; color: #e53e3e; }
+        .services-grid { display: flex; gap: 24px; max-width: 1000px; margin: 0 auto; text-align: left; }
+        .service-card { background: white; border-left: 4px solid; padding: 26px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); flex: 1; position: relative; border-top: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
+        .card-bus { border-left-color: #dd844c; }
+        .card-cab { border-left-color: #3b82f6; }
         
-        .service-icon { font-size: 32px; margin-bottom: 15px; }
-        .service-card h3 { font-size: 20px; margin-bottom: 10px; color: #111; }
-        .service-card p { color: #666; font-size: 14px; line-height: 1.5; }
+        .badge { position: absolute; top: 18px; right: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge.discount { color: #dd844c; }
+        .badge.soon { color: #3b82f6; }
+        
+        .service-icon { font-size: 26px; margin-bottom: 12px; }
+        .service-card h3 { font-size: 19px; color: #1e293b; margin-bottom: 8px; font-weight: 700; }
+        .service-card p { color: #64748b; font-size: 13.5px; line-height: 1.6; }
 
-        /* HIDING POWERED BY BRANDING FROM WIDGET */
-        iframe, .tpwl-powered-by, [class*="powered-by"] { display: none !important; }
+        /* Exclusive WhatsApp Banner Layout */
+        .promo-banner {
+            max-width: 1000px;
+            margin: 45px auto 20px;
+            background: linear-gradient(90deg, #dd844c 0%, #cc723b 100%);
+            border-radius: 12px;
+            padding: 22px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            text-align: left;
+            box-shadow: 0 6px 20px rgba(221,132,76,0.25);
+        }
+        .promo-text { flex: 1; padding-right: 20px; }
+        .promo-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; background: rgba(0,0,0,0.15); padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .promo-text h4 { font-size: 19px; margin-bottom: 4px; font-weight: 700; }
+        .promo-text p { font-size: 13.5px; color: #fbe5d6; }
+        .promo-btn { background: white; color: #cc723b; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 14px; white-space: nowrap; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .promo-btn:hover { background: #fff5ed; transform: translateY(-1px); }
+
+        /* Footer Layout */
+        footer { border-top: 1px solid #e2e8f0; padding: 22px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; color: #94a3b8; background: #ffffff; }
+        .footer-logo { display: flex; align-items: center; gap: 6px; color: #64748b; text-decoration: none; font-weight: 600; }
+        .footer-links a { color: #64748b; text-decoration: none; margin-left: 18px; }
+        .footer-links a:hover { color: #cc723b; }
+        
+        @media (max-width: 768px) {
+            .search-form-inside { flex-direction: column; gap: 10px; }
+            .input-group, .search-submit-btn { width: 100%; }
+            .services-grid { flex-direction: column; }
+            .promo-banner { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
+            .promo-text { padding-right: 0; }
+            footer { flex-direction: column; gap: 10px; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">Travel<span>Nova</span></a>
+        <a href="https://search.travelnova.live" class="logo-container">
+            <div class="logo-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12c0-5.243 4.257-9.5 9.5-9.5s9.5 4.257 9.5 9.5-4.257 9.5-9.5 9.5-9.5-4.257-9.5-9.5zm1.5 0c0 4.411 3.589 8 8 8s8-3.589 8-8-3.589-8-8-8-8 3.589-8 8zm9.5-4.5l4.5 4.5-4.5 4.5v-3h-5v-3h5v-3z"/></svg>
+            </div>
+            <div class="logo-text">Travel<span>Nova</span></div>
+        </a>
         <nav>
-            <a href="#" class="active">✈️ Flights</a>
-            <a href="#">🏨 Hotels</a>
-            <a href="#">🚌 Bus Tickets</a>
-            <a href="#">🚖 Cabs</a>
+            <a href="https://search.travelnova.live">✈️ Flights</a>
+            <a href="https://search.travelnova.live">🏨 Hotels</a>
+            <a href="#bus-section">🚌 Bus Tickets</a>
+            <a href="#cab-section">🚖 Cabs</a>
         </nav>
-        <a href="https://wa.me/91XXXXXXXXXX" class="support-btn" target="_blank">💬 24/7 Support</a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="support-btn" target="_blank">
+            <span>💬</span> 24/7 Support
+        </a>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Compare & Book Cheapest Flights & Hotels Instantly</h1>
-            <p>Tracking live prices from Skyscanner, Booking.com, Agoda & 100+ top travel networks</p>
-            
-            <div class="search-container">
-                <div id="tpwl-search">
-                    <p style="text-align:center; color:#666;">Loading your secure travel engine...</p>
+    <section class="hero">
+        <h1>Compare & Book Cheapest Flights & Hotels Instantly</h1>
+        <p>Connecting you to 100+ global airlines and premium hotel networks at the best rates.</p>
+        
+        <div class="search-box-container">
+            <div class="search-form-inside">
+                <div class="input-group">
+                    <label>📍 From</label>
+                    <input type="text" value="Patna (PAT)" readonly>
                 </div>
+                <div class="input-group">
+                    <label>🎯 To</label>
+                    <input type="text" placeholder="Where are you going?" readonly onclick="window.location.href='https://search.travelnova.live'">
+                </div>
+                <div class="input-group">
+                    <label>📅 Depart</label>
+                    <input type="text" placeholder="Select Date" readonly onclick="window.location.href='https://search.travelnova.live'">
+                </div>
+                <button class="search-submit-btn" onclick="window.location.href='https://search.travelnova.live'">Search Flights</button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="services-section">
-            <div class="section-title">Explore Premium Services ✨</div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <span class="badge discount">Up To 20% Off</span>
-                    <div class="service-icon">🚌</div>
-                    <h3>Bus Bookings</h3>
-                    <p>Intercity bus travel across 10,000+ routes at guaranteed lowest prices. Smart routes & premium fleet tracking coming soon.</p>
-                </div>
-                <div class="service-card">
-                    <span class="badge soon">Coming Soon</span>
-                    <div class="service-icon">🚕</div>
-                    <h3>Cab Rentals</h3>
-                    <p>Hourly city rentals, outstation round-trips, and airport transfers with top-rated professional drivers at your fingertips.</p>
-                </div>
+    <section class="services-section">
+        <div class="section-title">Explore Premium Services ✨</div>
+        <div class="section-subtitle">Everything you need for a perfectly curated hassle-free holiday experience.</div>
+        
+        <div class="services-grid">
+            <div id="bus-section" class="service-card card-bus">
+                <span class="badge discount">Up to 20% Off</span>
+                <div class="service-icon">🚌</div>
+                <h3>Bus Bookings</h3>
+                <p>Intercity bus travel across 10,000+ routes at guaranteed lowest prices. Smart routes & premium fleet tracking coming soon.</p>
             </div>
-        </section>
-    </main>
+            <div id="cab-section" class="service-card card-cab">
+                <span class="badge soon">Coming Soon</span>
+                <div class="service-icon">🚗</div>
+                <h3>Cab Rentals</h3>
+                <p>Hourly city rentals, outstation round-trips, and airport transfers with top-rated professional drivers at your fingertips.</p>
+            </div>
+        </div>
 
-    <script src="https://www.travelpayouts.com/widgets/XXXXXX.js?v=XXXX" async></script>
+        <div class="promo-banner">
+            <div class="promo-text">
+                <span class="promo-tag">Exclusive Benefit</span>
+                <h4>Need Custom Tour Packages?</h4>
+                <p>Connect directly with our experts on WhatsApp to design personalized itineraries at unbeatable group rates.</p>
+            </div>
+            <a href="https://wa.me/91XXXXXXXXXX" class="promo-btn" target="_blank">Chat With Expert</a>
+        </div>
+    </section>
+
+    <footer>
+        <a href="https://search.travelnova.live" class="footer-logo">🚀 TravelNova</a>
+        <div>© 2026 TravelNova. All rights reserved. Made for smart travelers.</div>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
 </body>
 </html>
