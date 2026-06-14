@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelNova – Luxury Flights & Hotels Comparison</title>
+    <title>TravelNova – Premium Flights & Hotels Comparison</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -33,7 +33,7 @@
             overflow-x: hidden;
         }
 
-        /* Premium Header Styling */
+        /* Navbar Layout */
         header {
             background: rgba(7, 11, 25, 0.85);
             backdrop-filter: blur(20px);
@@ -64,12 +64,6 @@
             letter-spacing: -0.03em;
         }
 
-        .logo i {
-            background: var(--brand-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         .logo span {
             color: var(--brand-primary);
         }
@@ -77,7 +71,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -86,7 +80,7 @@
             color: var(--text-muted);
             font-weight: 500;
             font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -100,7 +94,7 @@
         .btn-support {
             background: var(--brand-gradient);
             color: var(--text-light) !important;
-            padding: 0.7rem 1.4rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 12px;
             font-weight: 600 !important;
             box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
@@ -111,17 +105,12 @@
             box-shadow: 0 6px 25px rgba(0, 210, 255, 0.5);
         }
 
-        /* Ultra-Modern Hero Layout */
+        /* Hero Section */
         .hero-section {
-            padding: 6rem 2rem 10rem 2rem;
+            padding: 7rem 2rem 11rem 2rem;
             text-align: center;
             position: relative;
             background: radial-gradient(circle at 50% 10%, rgba(0, 102, 255, 0.15) 0%, transparent 60%);
-        }
-
-        .hero-content {
-            max-width: 850px;
-            margin: 0 auto 4rem auto;
         }
 
         .hero-content h1 {
@@ -138,27 +127,76 @@
         .hero-content p {
             font-size: 1.2rem;
             color: var(--text-muted);
-            font-weight: 400;
             max-width: 650px;
             margin: 0 auto;
         }
 
-        /* High-End Glassmorphic Widget Area */
+        /* Glassmorphic Widget Container with Tabs */
         .search-container {
             max-width: 1100px;
-            margin: -7rem auto 0 auto;
-            background: rgba(17, 24, 39, 0.7);
+            margin: -8rem auto 0 auto;
+            background: rgba(17, 24, 39, 0.8);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 24px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
             position: relative;
             z-index: 10;
         }
 
-        /* Modern Feature Cards Section */
+        /* Clean Functional Tab Switchers */
+        .widget-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.6rem 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            color: var(--text-light);
+            background: var(--brand-gradient);
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Tab Content Styling */
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Premium Services Grid */
         .services-section {
             max-width: 1280px;
             margin: 8rem auto 4rem auto;
@@ -179,32 +217,20 @@
 
         .section-title p {
             color: var(--text-muted);
-            font-size: 1.05rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
             background-color: var(--card-bg);
-            padding: 3rem 2.5rem;
+            padding: 2.5rem 2rem;
             border-radius: 20px;
             border: 1px solid var(--border-color);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.05) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
         }
 
         .service-card:hover {
@@ -213,28 +239,23 @@
             box-shadow: 0 20px 40px -15px rgba(0, 210, 255, 0.15);
         }
 
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
         .icon-box {
-            width: 56px;
-            height: 56px;
+            width: 50px;
+            height: 50px;
             background: rgba(0, 210, 255, 0.1);
             color: var(--brand-primary);
-            border-radius: 14px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
         }
 
         .service-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 0.8rem;
-            letter-spacing: -0.01em;
         }
 
         .service-card p {
@@ -243,13 +264,13 @@
             line-height: 1.6;
         }
 
-        /* Seamless Premium WhatsApp Panel */
+        /* WhatsApp Expert Panel */
         .whatsapp-banner {
             background: linear-gradient(90deg, #0f2d1e 0%, #061810 100%);
             border: 1px solid rgba(37, 211, 102, 0.2);
             padding: 2rem 3rem;
             border-radius: 24px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 6rem auto;
             display: flex;
             justify-content: space-between;
@@ -276,7 +297,6 @@
 
         .whatsapp-info p {
             color: var(--text-muted);
-            font-size: 0.95rem;
         }
 
         .btn-whatsapp {
@@ -286,9 +306,7 @@
             padding: 0.8rem 1.8rem;
             border-radius: 12px;
             font-weight: 700;
-            font-size: 0.95rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
@@ -296,24 +314,23 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
         }
 
-        /* Minimalist Footer */
         footer {
             background-color: #040710;
             color: var(--text-muted);
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
         }
 
-        /* Responsive Layouts */
         @media (max-width: 768px) {
-            .navbar { flex-direction: column; gap: 1.2rem; text-align: center; }
-            .nav-links { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-            .hero-content h1 { font-size: 2.25rem; }
-            .search-container { padding: 0.75rem; margin-top: -5rem; border-radius: 16px; }
-            .whatsapp-banner { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
-            .whatsapp-text { flex-direction: column; gap: 0.75rem; }
+            .navbar { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+            .hero-content h1 { font-size: 2.3rem; }
+            .search-container { padding: 1rem; margin-top: -5rem; }
+            .widget-tabs { justify-content: center; }
+            .whatsapp-banner { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1rem; }
+            .whatsapp-text { flex-direction: column; }
         }
     </style>
 </head>
@@ -322,12 +339,12 @@
     <header>
         <nav class="navbar">
             <a href="#" class="logo">
-                <i class="fa-solid fa-cloud-sun-flight"></i> Travel<span>Nova</span>
+                <i class="fa-solid fa-paper-plane" style="color: var(--brand-primary);"></i> Travel<span>Nova</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#" class="active"><i class="fa-solid fa-plane"></i> Flights</a></li>
-                <li><a href="#"><i class="fa-solid fa-hotel"></i> Hotels</a></li>
-                <li><a href="https://wa.me/91XXXXXXXXXX" class="btn-support" target="_blank"><i class="fa-brands fa-whatsapp"></i> 24/7 Expert Help</a></li>
+                <li><a href="#" class="active" onclick="document.getElementById('flight-tab-btn').click(); return false;"><i class="fa-solid fa-plane"></i> Flights</a></li>
+                <li><a href="#" onclick="document.getElementById('hotel-tab-btn').click(); return false;"><i class="fa-solid fa-hotel"></i> Hotels</a></li>
+                <li><a href="https://wa.me/91XXXXXXXXXX" class="btn-support" target="_blank"><i class="fa-brands fa-whatsapp"></i> 24/7 Support</a></li>
             </ul>
         </nav>
     </header>
@@ -335,60 +352,84 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1>Compare & Book Cheapest Flights & Hotels Instantly</h1>
-            <p>Connecting you to 100+ global airlines and premium hotel networks at the best rates.</p>
+            <p>Direct live tracking from global networks and 100+ premium systems tailored for TravelNova.</p>
         </div>
     </section>
 
     <div class="search-container">
-        <script async src="https://tpwidg.com/content?currency=usd&trs=539620&shmarker=739406&show_hotels=true&powered_by=false&locale=en&searchUrl=search.travelnova.live&primary_override=%2300d2ff&color_button=%230066ff&color_icons=%2300d2ff&dark=%23111827&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2300d2ff&border_radius=12&plain=true&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+        
+        <div class="widget-tabs">
+            <button id="flight-tab-btn" class="tab-btn active" onclick="switchTab(this, 'flights')">
+                <i class="fa-solid fa-plane"></i> Flights Only
+            </button>
+            <button id="hotel-tab-btn" class="tab-btn" onclick="switchTab(this, 'hotels')">
+                <i class="fa-solid fa-hotel"></i> Hotels Only
+            </button>
+        </div>
+
+        <div id="flights-tab" class="tab-panel active">
+            <script async src="https://tpwidg.com/content?currency=INR&trs=539620&shmarker=739406&show_hotels=false&powered_by=false&locale=en&searchUrl=search.travelnova.live&primary_override=%2300d2ff&color_button=%230066ff&color_icons=%2300d2ff&dark=%23111827&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2300d2ff&border_radius=12&plain=true" charset="utf-8"></script>
+        </div>
+
+        <div id="hotels-tab" class="tab-panel">
+            <script async src="https://www.travelpayouts.com/widgets/hotels_search_form.js?marker=739406&with_request=true&search_host=search.travelnova.live&locale=en&currency=inr&disable_header=true" charset="utf-8"></script>
+        </div>
+
     </div>
 
     <section class="services-section">
         <div class="section-title">
-            <h2>Elite Travel Solutions</h2>
-            <p>Uncompromising reliability and absolute luxury for every journey you take.</p>
+            <h2>Explore Premium Services ✨</h2>
+            <p>Everything you need for a perfectly curated, hassle-free luxury holiday experience.</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="icon-box">
-                    <i class="fa-solid fa-bus-simple"></i>
-                </div>
-                <h3>Premium Bus Bookings</h3>
-                <p>Gain access to safe, top-tier intercity travel options across luxury fleets with smart route mapping.</p>
+                <div class="icon-box"><i class="fa-solid fa-plane-departure"></i></div>
+                <h3>Global Flight Search</h3>
+                <p>Instant meta-search comparison across verified global airlines to lock the lowest premium rates.</p>
             </div>
-            
             <div class="service-card">
-                <div class="icon-box">
-                    <i class="fa-solid fa-bell-concierge"></i>
-                </div>
+                <div class="icon-box"><i class="fa-solid fa-hotel"></i></div>
+                <h3>Curated Hotels Only</h3>
+                <p>Exclusive deals directly synchronized with international boutique chains and elite stay resorts.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-car-side"></i></div>
                 <h3>Luxury Cab Rentals</h3>
-                <p>Highly professional, verified chauffeurs waiting to serve your intra-city commutes and airport transfers seamlessly.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="icon-box">
-                    <i class="fa-solid fa-hotel"></i>
-                </div>
-                <h3>Curated Hotel Deals</h3>
-                <p>Handpicked partner hotels and global luxury stays optimized entirely to suit your customized lifestyle preferences.</p>
+                <p>Hourly city rentals, outstation round-trips, and seamless airport transfers with top-rated drivers.</p>
             </div>
         </div>
     </section>
 
     <div class="whatsapp-banner">
         <div class="whatsapp-text">
-            <i class="fa-solid fa-headset"></i>
+            <i class="fa-solid fa-comments-dollar"></i>
             <div class="whatsapp-info">
-                <h4>Looking for Custom Corporate Packages?</h4>
-                <p>Connect with our verified travel concierge directly on WhatsApp for premium group itineraries.</p>
+                <h4>Need Custom Tour Packages?</h4>
+                <p>Connect directly with our corporate travel experts on WhatsApp for tailored group packages and discounts.</p>
             </div>
         </div>
-        <a href="https://wa.me/91XXXXXXXXXX" class="btn-whatsapp" target="_blank">Talk to Expert</a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="btn-whatsapp" target="_blank">Chat With Expert</a>
     </div>
 
     <footer>
-        <p>&copy; 2026 TravelNova. Crafted with absolute premium standards.</p>
+        <p>&copy; 2026 TravelNova. All rights reserved. Made for smart travelers.</p>
     </footer>
+
+    <script>
+        function switchTab(element, tabId) {
+            // Hide all tab content boxes
+            document.getElementById('flights-tab').style.display = 'none';
+            document.getElementById('hotels-tab').style.display = 'none';
+            
+            // Remove active style state from buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Activate current selection
+            document.getElementById(tabId + '-tab').style.display = 'block';
+            element.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
