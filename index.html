@@ -3,178 +3,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelNova - Compare & Book Cheapest Flights & Hotels</title>
+    <title>TravelNova – Luxury Flights & Hotels Comparison</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-orange: #ff7a00;
-            --theme-blue: #0b2265;
+            --bg-dark: #070b19;
+            --brand-primary: #00d2ff;
+            --brand-gradient: linear-gradient(135deg, #00d2ff 0%, #0066ff 100%);
+            --card-bg: #111827;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        
-        /* Header Navigation */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Premium Header Styling */
         header {
+            background: rgba(7, 11, 25, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1280px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 5%;
-            background: #ffffff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            position: sticky; top: 0; z-index: 1000;
+            padding: 1.25rem 2rem;
         }
-        .logo-container { display: flex; align-items: center; text-decoration: none; color: #111; font-weight: 700; font-size: 24px; }
-        .logo-icon { color: #d9383a; margin-right: 8px; font-size: 24px; display: flex; align-items: center; }
-        .logo-text span { color: #d9383a; }
-        
-        nav { display: flex; align-items: center; }
-        nav a { margin: 0 14px; text-decoration: none; color: #4a5568; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 4px; transition: 0.2s; }
-        nav a:hover { color: #d9383a; }
-        
-        .support-btn { background: #e6f4ff; color: #0066cc; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 6px; }
 
-        /* Hero Banner Section */
-        .hero {
-            background: linear-gradient(180deg, #0f2b5c 0%, #153d82 100%);
-            padding: 70px 20px;
-            text-align: center;
-            color: white;
-            min-height: 380px;
+        .logo {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-light);
+            letter-spacing: -0.03em;
+        }
+
+        .logo i {
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo span {
+            color: var(--brand-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
             align-items: center;
         }
-        .hero h1 { font-size: 38px; font-weight: 700; margin-bottom: 12px; max-width: 850px; letter-spacing: -0.5px; }
-        .hero p { font-size: 16px; color: #cbd5e1; margin-bottom: 35px; max-width: 700px; opacity: 0.95; }
 
-        /* Search Widget Container */
-        .search-box-container {
-            width: 100%;
-            max-width: 1000px;
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 12px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-            margin-bottom: -120px;
-            z-index: 10;
-            min-height: 90px;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* Services Grid Section */
-        .services-section { padding: 160px 5% 40px; background: #f8fafc; text-align: center; }
-        .section-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; color: #1e293b; }
-        .section-subtitle { font-size: 14px; color: #64748b; margin-bottom: 45px; }
-        
-        .services-grid { display: flex; gap: 24px; max-width: 1000px; margin: 0 auto; text-align: left; }
-        .service-card { background: white; border-left: 4px solid; padding: 26px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); flex: 1; position: relative; border-top: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
-        .card-bus { border-left-color: #dd844c; }
-        .card-cab { border-left-color: #3b82f6; }
-        
-        .badge { position: absolute; top: 18px; right: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .badge.discount { color: #dd844c; }
-        .badge.soon { color: #3b82f6; }
-        
-        .service-icon { font-size: 26px; margin-bottom: 12px; }
-        .service-card h3 { font-size: 19px; color: #1e293b; margin-bottom: 8px; font-weight: 700; }
-        .service-card p { color: #64748b; font-size: 13.5px; line-height: 1.6; }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-light);
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+        }
 
-        /* Exclusive WhatsApp Banner */
-        .promo-banner {
-            max-width: 1000px;
-            margin: 45px auto 20px;
-            background: linear-gradient(90deg, #dd844c 0%, #cc723b 100%);
+        .btn-support {
+            background: var(--brand-gradient);
+            color: var(--text-light) !important;
+            padding: 0.7rem 1.4rem;
             border-radius: 12px;
-            padding: 22px 32px;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-support:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 210, 255, 0.5);
+        }
+
+        /* Ultra-Modern Hero Layout */
+        .hero-section {
+            padding: 6rem 2rem 10rem 2rem;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 10%, rgba(0, 102, 255, 0.15) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.04em;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* High-End Glassmorphic Widget Area */
+        .search-container {
+            max-width: 1100px;
+            margin: -7rem auto 0 auto;
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding: 1.5rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Modern Feature Cards Section */
+        .services-section {
+            max-width: 1280px;
+            margin: 8rem auto 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.6rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(0, 210, 255, 0.15);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--brand-primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Seamless Premium WhatsApp Panel */
+        .whatsapp-banner {
+            background: linear-gradient(90deg, #0f2d1e 0%, #061810 100%);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            padding: 2rem 3rem;
+            border-radius: 24px;
+            max-width: 900px;
+            margin: 6rem auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: white;
-            text-align: left;
-            box-shadow: 0 6px 20px rgba(221,132,76,0.25);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
         }
-        .promo-text { flex: 1; padding-right: 20px; }
-        .promo-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; background: rgba(0,0,0,0.15); padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 6px; letter-spacing: 0.5px; }
-        .promo-text h4 { font-size: 19px; margin-bottom: 4px; font-weight: 700; }
-        .promo-text p { font-size: 13.5px; color: #fbe5d6; }
-        .promo-btn { background: white; color: #cc723b; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 14px; white-space: nowrap; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .promo-btn:hover { background: #fff5ed; transform: translateY(-1px); }
 
-        /* Footer Layout */
-        footer { border-top: 1px solid #e2e8f0; padding: 22px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; color: #94a3b8; background: #ffffff; }
-        .footer-logo { display: flex; align-items: center; gap: 6px; color: #64748b; text-decoration: none; font-weight: 600; }
-        .footer-links a { color: #64748b; text-decoration: none; margin-left: 18px; }
-        .footer-links a:hover { color: #cc723b; }
-        
+        .whatsapp-text {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .whatsapp-text i {
+            font-size: 2.5rem;
+            color: #25d366;
+        }
+
+        .whatsapp-info h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .whatsapp-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: #070b19;
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Minimalist Footer */
+        footer {
+            background-color: #040710;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Layouts */
         @media (max-width: 768px) {
-            .services-grid { flex-direction: column; }
-            .promo-banner { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
-            .promo-text { padding-right: 0; }
-            footer { flex-direction: column; gap: 10px; text-align: center; }
+            .navbar { flex-direction: column; gap: 1.2rem; text-align: center; }
+            .nav-links { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+            .hero-content h1 { font-size: 2.25rem; }
+            .search-container { padding: 0.75rem; margin-top: -5rem; border-radius: 16px; }
+            .whatsapp-banner { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+            .whatsapp-text { flex-direction: column; gap: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo-container">
-            <div class="logo-icon">🚀</div>
-            <div class="logo-text">Travel<span>Nova</span></div>
-        </a>
-        <nav>
-            <a href="#">✈️ Flights</a>
-            <a href="#">🏨 Hotels</a>
-            <a href="#bus-section">🚌 Bus Tickets</a>
-            <a href="#cab-section">🚖 Cabs</a>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-cloud-sun-flight"></i> Travel<span>Nova</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class="fa-solid fa-plane"></i> Flights</a></li>
+                <li><a href="#"><i class="fa-solid fa-hotel"></i> Hotels</a></li>
+                <li><a href="https://wa.me/91XXXXXXXXXX" class="btn-support" target="_blank"><i class="fa-brands fa-whatsapp"></i> 24/7 Expert Help</a></li>
+            </ul>
         </nav>
-        <a href="https://wa.me/91XXXXXXXXXX" class="support-btn" target="_blank">
-            <span>💬</span> 24/7 Support
-        </a>
     </header>
 
-    <section class="hero">
-        <h1>Compare & Book Cheapest Flights & Hotels Instantly</h1>
-        <p>Connecting you to 100+ global airlines and premium hotel networks at the best rates.</p>
-        
-        <div class="search-box-container">
-            <script async src="https://tpwidg.com/content?currency=usd&trs=539620&shmarker=739406&show_hotels=true&powered_by=true&locale=en&searchUrl=search.travelnova.live&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Compare & Book Cheapest Flights & Hotels Instantly</h1>
+            <p>Connecting you to 100+ global airlines and premium hotel networks at the best rates.</p>
         </div>
     </section>
+
+    <div class="search-container">
+        <script async src="https://tpwidg.com/content?currency=usd&trs=539620&shmarker=739406&show_hotels=true&powered_by=false&locale=en&searchUrl=search.travelnova.live&primary_override=%2300d2ff&color_button=%230066ff&color_icons=%2300d2ff&dark=%23111827&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2300d2ff&border_radius=12&plain=true&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+    </div>
 
     <section class="services-section">
-        <div class="section-title">Explore Premium Services ✨</div>
-        <div class="section-subtitle">Everything you need for a perfectly curated hassle-free holiday experience.</div>
-        
-        <div class="services-grid">
-            <div id="bus-section" class="service-card card-bus">
-                <span class="badge discount">Up to 20% Off</span>
-                <div class="service-icon">🚌</div>
-                <h3>Bus Bookings</h3>
-                <p>Intercity bus travel across 10,000+ routes at guaranteed lowest prices. Smart routes & premium fleet tracking coming soon.</p>
-            </div>
-            <div id="cab-section" class="service-card card-cab">
-                <span class="badge soon">Coming Soon</span>
-                <div class="service-icon">🚗</div>
-                <h3>Cab Rentals</h3>
-                <p>Hourly city rentals, outstation round-trips, and airport transfers with top-rated professional drivers at your fingertips.</p>
-            </div>
+        <div class="section-title">
+            <h2>Elite Travel Solutions</h2>
+            <p>Uncompromising reliability and absolute luxury for every journey you take.</p>
         </div>
-
-        <div class="promo-banner">
-            <div class="promo-text">
-                <span class="promo-tag">Exclusive Benefit</span>
-                <h4>Need Custom Tour Packages?</h4>
-                <p>Connect directly with our experts on WhatsApp to design personalized itineraries at unbeatable group rates.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-bus-simple"></i>
+                </div>
+                <h3>Premium Bus Bookings</h3>
+                <p>Gain access to safe, top-tier intercity travel options across luxury fleets with smart route mapping.</p>
             </div>
-            <a href="https://wa.me/91XXXXXXXXXX" class="promo-btn" target="_blank">Chat With Expert</a>
+            
+            <div class="service-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                </div>
+                <h3>Luxury Cab Rentals</h3>
+                <p>Highly professional, verified chauffeurs waiting to serve your intra-city commutes and airport transfers seamlessly.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-hotel"></i>
+                </div>
+                <h3>Curated Hotel Deals</h3>
+                <p>Handpicked partner hotels and global luxury stays optimized entirely to suit your customized lifestyle preferences.</p>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <a href="#" class="footer-logo">🚀 TravelNova</a>
-        <div>© 2026 TravelNova. All rights reserved. Made for smart travelers.</div>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+    <div class="whatsapp-banner">
+        <div class="whatsapp-text">
+            <i class="fa-solid fa-headset"></i>
+            <div class="whatsapp-info">
+                <h4>Looking for Custom Corporate Packages?</h4>
+                <p>Connect with our verified travel concierge directly on WhatsApp for premium group itineraries.</p>
+            </div>
         </div>
+        <a href="https://wa.me/91XXXXXXXXXX" class="btn-whatsapp" target="_blank">Talk to Expert</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TravelNova. Crafted with absolute premium standards.</p>
     </footer>
 
 </body>
