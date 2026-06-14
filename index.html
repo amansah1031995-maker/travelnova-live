@@ -3,43 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelNova - Search Flights, Hotels & Buses</title>
+    <title>TravelNova - Premium Flight, Hotel & Travel Meta-Search</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f6; }
-        header { background: #003580; color: white; padding: 20px; text-align: center; }
-        .hero { padding: 50px 20px; text-align: center; }
-        .search-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 800px; margin: -70px auto 0; }
-        input, select { padding: 15px; margin: 5px; border: 1px solid #ddd; border-radius: 5px; width: 200px; }
-        button { padding: 15px 30px; background: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .features { display: flex; justify-content: space-around; padding: 50px; }
+        :root {
+            --primary: #0066cc;
+            --secondary: #ff5959;
+            --dark: #1a202c;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+            --border: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); }
+        
+        /* Header & Premium Navbar */
+        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 26px; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Hero Banner */
+        .hero { background: var(--gradient); padding: 90px 5% 150px 5%; text-align: center; color: white; }
+        .hero h1 { font-size: 44px; font-weight: 800; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+        .hero p { font-size: 19px; opacity: 0.95; margin-bottom: 30px; font-weight: 500; }
+
+        /* Search Container (Travelpayouts Widget Wrapper) */
+        .search-container { max-width: 1100px; margin: -90px auto 40px auto; background: white; padding: 20px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); width: 92%; min-height: 250px; border: 1px solid rgba(255,255,255,0.8); }
+        
+        /* Section Titles */
+        .section-title { max-width: 1100px; margin: 40px auto 20px auto; padding: 0 5%; font-size: 24px; font-weight: 800; color: var(--dark); display: flex; align-items: center; gap: 10px; }
+        
+        /* Upcoming Premium Services Section */
+        .services-section { max-width: 1100px; margin: 0 auto 40px auto; padding: 0 5%; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card { background: white; border-radius: 20px; padding: 30px; border: 1px solid var(--border); position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: 0.3s; }
+        .service-card:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(0,0,0,0.06); border-color: #cbd5e1; }
+        
+        /* Premium Badges */
+        .badge { position: absolute; top: 20px; right: 20px; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge.discount { background: #e6fffa; color: #047481; border: 1px solid #b2f5ea; }
+        .badge.soon { background: #fff5f5; color: #e53e3e; border: 1px solid #fed7d7; }
+        
+        .service-icon { font-size: 36px; margin-bottom: 20px; display: inline-block; }
+        .service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
+        .service-card p { font-size: 14px; color: #64748b; line-height: 1.6; }
+
+        /* Handpicked Deals Section */
+        .deals-section { max-width: 1100px; margin: 0 auto 60px auto; padding: 0 5%; }
+        .deals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .deal-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: 0.3s; border: 1px solid var(--border); }
+        .deal-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .deal-img { height: 190px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 22px; background-size: cover; background-position: center; }
+        .deal-info { padding: 25px; }
+        .deal-info h3 { font-size: 19px; margin-bottom: 10px; font-weight: 700; }
+        .deal-price { color: var(--secondary); font-size: 22px; font-weight: 800; margin-bottom: 20px; }
+        .deal-btn { display: block; text-align: center; background: var(--gradient); color: white; padding: 14px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(67, 100, 247, 0.2); }
+        .deal-btn:hover { opacity: 0.95; transform: translateY(-1px); }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>TravelNova.live</h1>
-</header>
+    <header>
+        <div class="logo">TravelNova.live</div>
+    </header>
 
-<div class="hero">
-    <h2>Explore the World, Simply.</h2>
-</div>
+    <section class="hero">
+        <h1>Compare & Book Cheapest Flights & Hotels Instantly</h1>
+        <p>Tracking live prices from Skyscanner, Booking.com, Agoda & 100+ top networks</p>
+    </section>
 
-<div class="search-box">
-    <input type="text" placeholder="From where?">
-    <input type="text" placeholder="To where?">
-    <select>
-        <option>Flights</option>
-        <option>Hotels</option>
-        <option>Buses</option>
-    </select>
-    <button>Search Now</button>
-</div>
+    <main class="search-container">
+        <script async src="https://tpwidg.com/content?currency=usd&trs=539546&shmarker=739406&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.com%2F-search&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+    </main>
 
-<section class="features">
-    <div><h3>✈️ Best Flights</h3></div>
-    <div><h3>🏨 Luxury Hotels</h3></div>
-    <div><h3>🚌 Global Buses</h3></div>
-</section>
+    <div class="section-title">Explore Premium Services ✨</div>
+    <section class="services-section">
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="badge discount">Up To 20% Off</span>
+                <div class="service-icon">🚌</div>
+                <h3>Bus Bookings</h3>
+                <p>Intercity bus travel across 10,000+ routes at guaranteed lowest prices. Smart routes & premium fleet tracking coming soon.</p>
+            </div>
+            <div class="service-card">
+                <span class="badge soon">Coming Soon</span>
+                <div class="service-icon">🚕</div>
+                <h3>Cab Rentals</h3>
+                <p>Hourly city rentals, outstation round-trips, and airport transfers with top-rated professional drivers at your fingertips.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-title">Today's Top Handpicked Deals 🔥</div>
+    <section class="deals-section">
+        <div class="deals-grid">
+            <div class="deal-card">
+                <div class="deal-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500')">Goa Getaway</div>
+                <div class="deal-info">
+                    <h3>Delhi to Goa Flight + Hotel Combo</h3>
+                    <div class="deal-price">Best Rates Guaranteed</div>
+                    <a href="https://www.aviasales.com" target="_blank" class="deal-btn">Book Premium Deal</a>
+                </div>
+            </div>
+            <div class="deal-card">
+                <div class="deal-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500')">Bali Luxury</div>
+                <div class="deal-info">
+                    <h3>Luxury Bali Tour Package (5D/4N)</h3>
+                    <div class="deal-price">Exclusive Discount Inside</div>
+                    <a href="https://www.aviasales.com" target="_blank" class="deal-btn">Compare Rates</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
