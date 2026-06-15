@@ -10,9 +10,9 @@
     
     <style>
         :root {
-            --bg-color: #05050A; /* Ultra Dark Background */
-            --accent-glow: #7B2CBF; /* Deep Purple Accent */
-            --accent-bright: #E0AAFF; /* Light Purple Text */
+            --bg-color: #05050A;
+            --accent-glow: #7B2CBF;
+            --accent-bright: #E0AAFF;
             --card-glass: rgba(255, 255, 255, 0.03);
             --border-glass: rgba(255, 255, 255, 0.08);
             --text-main: #FFFFFF;
@@ -26,9 +26,7 @@
             font-family: 'Outfit', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-color);
@@ -39,11 +37,9 @@
             overflow-x: hidden;
         }
 
-        /* ----- Unique Header ----- */
         header {
             background: rgba(5, 5, 10, 0.8);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-glass);
             position: sticky;
             top: 0;
@@ -67,7 +63,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            letter-spacing: 1px;
         }
 
         .logo i {
@@ -89,17 +84,13 @@
             font-weight: 500;
             font-size: 1rem;
             transition: 0.3s;
-            position: relative;
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .nav-item:hover {
-            color: var(--text-main);
-        }
+        .nav-item:hover { color: var(--text-main); }
 
-        /* Coming Soon Badge */
         .coming-soon-badge {
             background: rgba(123, 44, 191, 0.2);
             border: 1px solid var(--accent-glow);
@@ -108,11 +99,9 @@
             padding: 1px 5px;
             border-radius: 4px;
             font-weight: 700;
-            letter-spacing: 0.5px;
             margin-left: 4px;
         }
 
-        /* ----- Hero Section ----- */
         .hero {
             text-align: center;
             padding: 6rem 1rem 4rem 1rem;
@@ -121,7 +110,6 @@
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.2;
             margin-bottom: 1rem;
             background: linear-gradient(to right, #FFFFFF, var(--text-dim));
             -webkit-background-clip: text;
@@ -135,13 +123,11 @@
             margin: 0 auto;
         }
 
-        /* ----- Widgets Container (Glassmorphism) ----- */
         .engine-container {
             max-width: 1000px;
             margin: 0 auto 5rem auto;
             background: var(--card-glass);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-glass);
             border-radius: 24px;
             padding: 3rem;
@@ -150,35 +136,48 @@
 
         .widget-wrapper {
             margin-bottom: 4rem;
-            scroll-margin-top: 100px; /* Adjusts scroll position so header doesn't block title */
-        }
-
-        .widget-wrapper:last-child {
-            margin-bottom: 0;
+            scroll-margin-top: 100px;
         }
 
         .widget-header {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: var(--text-main);
         }
+        
+        .widget-title i { color: var(--accent-bright); margin-right: 10px; }
 
-        .widget-header i {
-            color: var(--accent-bright);
+        /* Direct Booking Button (Fallback for Adblockers) */
+        .direct-link-btn {
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid #00d2ff;
+            color: #00d2ff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Safe container to prevent external scripts from breaking layouts */
+        .direct-link-btn:hover {
+            background: #00d2ff;
+            color: #05050A;
+        }
+
         .safe-widget-box {
             width: 100%;
-            min-height: 250px;
+            min-height: 100px;
             position: relative;
         }
 
-        /* Coming Soon Section Styles */
         .coming-soon-card {
             background: rgba(255, 255, 255, 0.01);
             border: 1px dashed var(--border-glass);
@@ -192,43 +191,17 @@
             font-size: 2.5rem;
             color: var(--accent-glow);
             margin-bottom: 1rem;
-            display: block;
         }
 
-        .coming-soon-card h3 {
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
+        .coming-soon-card h3 { color: var(--text-main); font-size: 1.3rem; }
 
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .nav-menus {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1.5rem;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .engine-container {
-                padding: 1.5rem;
-                margin: 0 1rem 3rem 1rem;
-                border-radius: 16px;
-            }
+            .navbar { flex-direction: column; gap: 1.5rem; }
+            .nav-menus { flex-wrap: wrap; justify-content: center; }
+            .widget-header { flex-direction: column; align-items: flex-start; gap: 15px; }
         }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-glass);
-        }
+        
+        footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-glass); }
     </style>
 </head>
 <body>
@@ -256,7 +229,10 @@
         
         <div id="book-flights" class="widget-wrapper">
             <div class="widget-header">
-                <i class="fa-solid fa-plane-departure"></i> Book Flights
+                <div class="widget-title"><i class="fa-solid fa-plane-departure"></i> Book Flights</div>
+                <a href="https://search.travelnova.live/flights" target="_blank" class="direct-link-btn">
+                    Search Directly <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
             <div class="safe-widget-box">
                 <script src="https://tpwidg.com/content?currency=INR&trs=539620&shmarker=739406&show_hotels=false&powered_by=false&locale=en&searchUrl=search.travelnova.live&primary_override=%2300d2ff&color_button=%230066ff&color_icons=%2300d2ff&dark=%23111827&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2300d2ff&border_radius=12&plain=true" charset="utf-8"></script>
@@ -265,7 +241,10 @@
 
         <div id="book-hotels" class="widget-wrapper">
             <div class="widget-header">
-                <i class="fa-solid fa-hotel"></i> Book Hotels
+                <div class="widget-title"><i class="fa-solid fa-hotel"></i> Book Hotels</div>
+                <a href="https://search.travelnova.live/hotels" target="_blank" class="direct-link-btn">
+                    Find Hotels <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
             </div>
             <div class="safe-widget-box">
                 <script src="https://www.travelpayouts.com/widgets/hotels_search_form.js?marker=739406&with_request=true&search_host=search.travelnova.live&locale=en&currency=inr&disable_header=true" charset="utf-8"></script>
@@ -274,7 +253,7 @@
 
         <div id="book-bus" class="widget-wrapper">
             <div class="widget-header">
-                <i class="fa-solid fa-bus"></i> Book Bus Tickets
+                <div class="widget-title"><i class="fa-solid fa-bus"></i> Book Bus Tickets</div>
             </div>
             <div class="coming-soon-card">
                 <i class="fa-solid fa-clock"></i>
@@ -285,7 +264,7 @@
 
         <div id="book-cabs" class="widget-wrapper">
             <div class="widget-header">
-                <i class="fa-solid fa-car"></i> Book Premium Cabs
+                <div class="widget-title"><i class="fa-solid fa-car"></i> Book Premium Cabs</div>
             </div>
             <div class="coming-soon-card">
                 <i class="fa-solid fa-bolt"></i>
