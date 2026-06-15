@@ -26,6 +26,10 @@
             font-family: 'Outfit', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-color);
             background-image: 
@@ -86,6 +90,9 @@
             font-size: 1rem;
             transition: 0.3s;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .nav-item:hover {
@@ -94,17 +101,15 @@
 
         /* Coming Soon Badge */
         .coming-soon-badge {
-            position: absolute;
-            top: -12px;
-            right: -20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--border-glass);
+            background: rgba(123, 44, 191, 0.2);
+            border: 1px solid var(--accent-glow);
             color: var(--accent-bright);
-            font-size: 0.6rem;
-            padding: 2px 6px;
-            border-radius: 20px;
+            font-size: 0.55rem;
+            padding: 1px 5px;
+            border-radius: 4px;
             font-weight: 700;
             letter-spacing: 0.5px;
+            margin-left: 4px;
         }
 
         /* ----- Hero Section ----- */
@@ -145,6 +150,7 @@
 
         .widget-wrapper {
             margin-bottom: 4rem;
+            scroll-margin-top: 100px; /* Adjusts scroll position so header doesn't block title */
         }
 
         .widget-wrapper:last-child {
@@ -165,6 +171,36 @@
             color: var(--accent-bright);
         }
 
+        /* Safe container to prevent external scripts from breaking layouts */
+        .safe-widget-box {
+            width: 100%;
+            min-height: 250px;
+            position: relative;
+        }
+
+        /* Coming Soon Section Styles */
+        .coming-soon-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px dashed var(--border-glass);
+            border-radius: 16px;
+            padding: 3rem 1rem;
+            text-align: center;
+            color: var(--text-dim);
+        }
+
+        .coming-soon-card i {
+            font-size: 2.5rem;
+            color: var(--accent-glow);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .coming-soon-card h3 {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .navbar {
@@ -174,7 +210,7 @@
             .nav-menus {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 2rem;
+                gap: 1.5rem;
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -183,9 +219,6 @@
                 padding: 1.5rem;
                 margin: 0 1rem 3rem 1rem;
                 border-radius: 16px;
-            }
-            .coming-soon-badge {
-                right: -10px;
             }
         }
 
@@ -208,18 +241,8 @@
             <ul class="nav-menus">
                 <li><a href="#book-flights" class="nav-item"><i class="fa-solid fa-plane"></i> Flights</a></li>
                 <li><a href="#book-hotels" class="nav-item"><i class="fa-solid fa-bed"></i> Hotels</a></li>
-                <li>
-                    <span class="nav-item" style="cursor: not-allowed; opacity: 0.6;">
-                        <i class="fa-solid fa-bus"></i> Bus
-                        <span class="coming-soon-badge">SOON</span>
-                    </span>
-                </li>
-                <li>
-                    <span class="nav-item" style="cursor: not-allowed; opacity: 0.6;">
-                        <i class="fa-solid fa-car"></i> Cabs
-                        <span class="coming-soon-badge">SOON</span>
-                    </span>
-                </li>
+                <li><a href="#book-bus" class="nav-item"><i class="fa-solid fa-bus"></i> Bus <span class="coming-soon-badge">SOON</span></a></li>
+                <li><a href="#book-cabs" class="nav-item"><i class="fa-solid fa-car"></i> Cabs <span class="coming-soon-badge">SOON</span></a></li>
             </ul>
         </nav>
     </header>
@@ -235,14 +258,40 @@
             <div class="widget-header">
                 <i class="fa-solid fa-plane-departure"></i> Book Flights
             </div>
-            <script async src="https://tpwidg.com/content?currency=INR&trs=539620&shmarker=739406&show_hotels=false&powered_by=false&locale=en&searchUrl=search.travelnova.live&primary_override=%2300d2ff&color_button=%230066ff&color_icons=%2300d2ff&dark=%23111827&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2300d2ff&border_radius=12&plain=true" charset="utf-8"></script>
+            <div class="safe-widget-box">
+                <script src="https://tpwidg.com/content?currency=INR&trs=539620&shmarker=739406&show_hotels=false&powered_by=false&locale=en&searchUrl=search.travelnova.live&primary_override=%2300d2ff&color_button=%230066ff&color_icons=%2300d2ff&dark=%23111827&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2300d2ff&border_radius=12&plain=true" charset="utf-8"></script>
+            </div>
         </div>
 
         <div id="book-hotels" class="widget-wrapper">
             <div class="widget-header">
                 <i class="fa-solid fa-hotel"></i> Book Hotels
             </div>
-            <script async src="https://www.travelpayouts.com/widgets/hotels_search_form.js?marker=739406&with_request=true&search_host=search.travelnova.live&locale=en&currency=inr&disable_header=true" charset="utf-8"></script>
+            <div class="safe-widget-box">
+                <script src="https://www.travelpayouts.com/widgets/hotels_search_form.js?marker=739406&with_request=true&search_host=search.travelnova.live&locale=en&currency=inr&disable_header=true" charset="utf-8"></script>
+            </div>
+        </div>
+
+        <div id="book-bus" class="widget-wrapper">
+            <div class="widget-header">
+                <i class="fa-solid fa-bus"></i> Book Bus Tickets
+            </div>
+            <div class="coming-soon-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Coming Soon</h3>
+                <p>We are integrating premier bus networks across top routes. Stay tuned!</p>
+            </div>
+        </div>
+
+        <div id="book-cabs" class="widget-wrapper">
+            <div class="widget-header">
+                <i class="fa-solid fa-car"></i> Book Premium Cabs
+            </div>
+            <div class="coming-soon-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Coming Soon</h3>
+                <p>Intercity cabs and luxury airport transfers are arriving shortly.</p>
+            </div>
         </div>
 
     </div>
