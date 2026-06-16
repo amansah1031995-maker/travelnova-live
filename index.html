@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelNova | Premium Flights & Hotels Search</title>
+    <title>TravelNova | Luxury Flights & Hotels Search</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-color: #05050A; /* Deep Midnight Space */
-            --accent-purple: #7B2CBF;
-            --accent-bright: #E0AAFF;
-            --whatsapp-green: #25D366;
+            --bg-color: #030307;
             --card-glass: rgba(255, 255, 255, 0.03);
             --border-glass: rgba(255, 255, 255, 0.08);
+            --glow-purple: #7B2CBF;
+            --glow-blue: #00d2ff;
+            --whatsapp-green: #25D366;
             --text-main: #FFFFFF;
-            --text-dim: #8A8D98;
+            --text-dim: #9499A6;
         }
 
         * {
@@ -25,23 +25,25 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Outfit', sans-serif;
-            scroll-behavior: smooth; /* Smooth Scrolling Feature */
         }
 
         body {
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(123, 44, 191, 0.15), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(0, 210, 255, 0.1), transparent 25%);
+                radial-gradient(circle at 80% 20%, rgba(123, 44, 191, 0.2), transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(0, 210, 255, 0.15), transparent 40%);
             color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             overflow-x: hidden;
         }
 
-        /* ----- Navigation Bar ----- */
+        /* ----- Header & Navbar ----- */
         header {
-            background: rgba(5, 5, 10, 0.8);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(3, 3, 7, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-glass);
             position: sticky;
             top: 0;
@@ -64,11 +66,12 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
         }
 
         .logo i {
-            background: linear-gradient(135deg, var(--accent-bright), #00d2ff);
+            background: linear-gradient(135deg, #FFD700, #FF8C00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -80,42 +83,51 @@
             align-items: center;
         }
 
-        .nav-item {
+        .nav-btn {
             color: var(--text-dim);
-            text-decoration: none;
-            font-weight: 500;
+            background: transparent;
+            border: none;
             font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-btn.active, .nav-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .coming-soon {
+            opacity: 0.4;
+            cursor: not-allowed;
             position: relative;
         }
 
-        .nav-item:hover {
-            color: var(--text-main);
-        }
-
-        /* Coming Soon Badges */
-        .coming-soon-badge {
-            position: absolute;
-            top: -12px;
-            right: -20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--border-glass);
-            color: var(--accent-bright);
+        .badge-soon {
             font-size: 0.6rem;
-            padding: 2px 6px;
-            border-radius: 20px;
+            background: rgba(255,0,0,0.2);
+            color: #FF4D4D;
+            border: 1px solid rgba(255,0,0,0.3);
+            padding: 1px 4px;
+            border-radius: 4px;
             font-weight: 700;
+            margin-left: 5px;
         }
 
-        /* Concierge Button Feature */
-        .concierge-btn {
+        .concierge-header-btn {
             background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 211, 102, 0.05));
             border: 1px solid var(--whatsapp-green);
             color: #FFF;
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
-            cursor: pointer;
             font-weight: 600;
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -123,80 +135,118 @@
             box-shadow: 0 0 15px rgba(37, 211, 102, 0.2);
         }
 
-        .concierge-btn:hover {
+        .concierge-header-btn:hover {
             background: var(--whatsapp-green);
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
-            transform: translateY(-2px);
+            color: #000;
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.4);
         }
 
-        /* ----- Hero Content ----- */
+        /* ----- Hero Section ----- */
         .hero {
             text-align: center;
-            padding: 6rem 1rem 4rem 1rem;
+            padding: 4rem 1rem 2rem 1rem;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.2;
+            letter-spacing: -1px;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, #FFFFFF, var(--text-dim));
+            background: linear-gradient(135deg, #FFFFFF 40%, #A3A8B6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        /* ----- Search Blocks Containers ----- */
-        .engine-container {
+        /* ----- Main 3D Container ----- */
+        .main-search-card {
             max-width: 1000px;
+            width: 95%;
             margin: 0 auto 5rem auto;
             background: var(--card-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 28px;
+            padding: 2.5rem;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+            transform: perspective(1000px) rotateX(1deg);
         }
 
-        .widget-wrapper {
-            margin-bottom: 4rem;
-            background: rgba(255,255,255,0.01);
-            padding: 1.5rem;
+        /* Main Tabs Selector Inside the Card */
+        .search-tabs-box {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-trigger {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            color: var(--text-dim);
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.02);
-        }
-
-        .widget-wrapper:last-child {
-            margin-bottom: 0;
-        }
-
-        .widget-header {
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text-main);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .widget-header i {
-            color: var(--accent-bright);
+        .tab-trigger i {
+            font-size: 1.4rem;
+            transition: 0.3s;
         }
 
-        /* ----- Concierge Modal Box Feature ----- */
+        /* Flights Active State with Neon Purple */
+        .tab-trigger.active[data-tab="flights"] {
+            color: #FFF;
+            background: linear-gradient(135deg, var(--glow-purple), rgba(123, 44, 191, 0.4));
+            border-color: var(--glow-purple);
+            box-shadow: 0 0 30px rgba(123, 44, 191, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Hotels Active State with Neon Blue */
+        .tab-trigger.active[data-tab="hotels"] {
+            color: #FFF;
+            background: linear-gradient(135deg, #00b4db, rgba(0, 180, 219, 0.4));
+            border-color: #00b4db;
+            box-shadow: 0 0 30px rgba(0, 180, 219, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .tab-trigger:hover:not(.active) {
+            color: #FFF;
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* ----- Live Search Panels View Handling ----- */
+        .search-panel {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+            min-height: 200px;
+        }
+
+        .search-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ----- Luxury Support Popup ----- */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 5, 10, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(3, 3, 7, 0.9);
+            backdrop-filter: blur(15px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -211,55 +261,39 @@
         }
 
         .modal-card {
-            background: #111116;
+            background: #0B0B10;
             border: 1px solid var(--border-glass);
-            padding: 2.5rem;
-            border-radius: 20px;
-            max-width: 450px;
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 480px;
             width: 90%;
             text-align: center;
-            transform: scale(0.8);
-            transition: 0.3s ease;
-        }
-
-        .modal-overlay.open .modal-card {
-            transform: scale(1);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.8);
         }
 
         .modal-card i.main-icon {
             font-size: 3.5rem;
-            color: var(--whatsapp-green);
-            margin-bottom: 1rem;
-        }
-
-        .modal-card h2 {
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .modal-card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            line-height: 1.5;
+            color: var(--glow-purple);
+            margin-bottom: 1.5rem;
         }
 
         .whatsapp-action-btn {
             background: var(--whatsapp-green);
             color: #000;
             text-decoration: none;
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2.5rem;
             border-radius: 50px;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            margin-top: 1.5rem;
             transition: 0.3s;
         }
 
         .whatsapp-action-btn:hover {
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
 
         .close-modal {
@@ -268,24 +302,25 @@
             color: var(--text-dim);
             margin-top: 1.5rem;
             cursor: pointer;
-            font-size: 0.9rem;
             text-decoration: underline;
         }
 
-        /* Mobile Optimization */
+        /* Responsive Optimization */
         @media (max-width: 768px) {
             .navbar { flex-direction: column; gap: 1.5rem; }
-            .nav-menus { flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
-            .hero h1 { font-size: 2.2rem; }
-            .engine-container { padding: 1.5rem; margin: 0 1rem 3rem 1rem; }
+            .nav-menus { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .search-tabs-box { flex-direction: column; }
+            .hero h1 { font-size: 2.3rem; }
+            .main-search-card { padding: 1.5rem; }
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             color: var(--text-dim);
-            font-size: 0.9rem;
             border-top: 1px solid var(--border-glass);
+            margin-top: auto;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -293,74 +328,80 @@
 
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-compass"></i> TravelNova
-            </a>
+            <a href="#" class="logo"><i class="fa-solid fa-solid fa-plane-up"></i> TravelNova</a>
             <ul class="nav-menus">
-                <li><a href="#book-flights" class="nav-item"><i class="fa-solid fa-plane"></i> Flights</a></li>
-                <li><a href="#book-hotels" class="nav-item"><i class="fa-solid fa-bed"></i> Hotels</a></li>
-                <li>
-                    <span class="nav-item" style="cursor: not-allowed; opacity: 0.5;">
-                        <i class="fa-solid fa-bus"></i> Bus
-                        <span class="coming-soon-badge">SOON</span>
-                    </span>
-                </li>
-                <li>
-                    <span class="nav-item" style="cursor: not-allowed; opacity: 0.5;">
-                        <i class="fa-solid fa-car"></i> Cabs
-                        <span class="coming-soon-badge">SOON</span>
-                    </span>
-                </li>
-                <li>
-                    <button class="concierge-btn" onclick="toggleModal(true)">
-                        <i class="fa-brands fa-whatsapp"></i> 24/7 Concierge
-                    </button>
-                </li>
+                <li><button class="nav-btn active" onclick="switchTab('flights')"><i class="fa-solid fa-jet-fighter"></i> Flights</button></li>
+                <li><button class="nav-btn" onclick="switchTab('hotels')"><i class="fa-solid fa-building-user"></i> Hotels</button></li>
+                <li><button class="nav-btn coming-soon"><i class="fa-solid fa-bus-simple"></i> Bus<span class="badge-soon">SOON</span></button></li>
+                <li><button class="nav-btn coming-soon"><i class="fa-solid fa-car-side"></i> Cabs<span class="badge-soon">SOON</span></button></li>
+                <li><button class="concierge-header-btn" onclick="toggleModal(true)"><i class="fa-brands fa-whatsapp"></i> 24/7 Support</button></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Compare & Book Cheapest Flights & Hotels Instantly</h1>
-        <p>Direct live tracking across global networks and premium systems tailored flawlessly for TravelNova.</p>
+        <h1>Find Your Next Destination</h1>
     </section>
 
-    <div class="engine-container">
+    <main class="main-search-card">
         
-        <div id="book-flights" class="widget-wrapper">
-            <div class="widget-header">
-                <i class="fa-solid fa-plane-departure"></i> Flights Only
-            </div>
-            <script async src="https://tpwidg.com/content?currency=INR&trs=539546&shmarker=739406&show_hotels=false&powered_by=false&locale=en&searchUrl=search.travelnova.live&primary_override=%237B2CBF&color_button=%237B2CBF&color_icons=%237B2CBF&dark=%2305050A&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%23E0AAFF&border_radius=12&plain=true" charset="utf-8"></script>
+        <div class="search-tabs-box">
+            <button class="tab-trigger active" data-tab="flights" onclick="switchTab('flights')">
+                <i class="fa-solid fa-plane-departure"></i> Flights Search
+            </button>
+            <button class="tab-trigger" data-tab="hotels" onclick="switchTab('hotels')">
+                <i class="fa-solid fa-hotel"></i> Hotels Search
+            </button>
         </div>
 
-        <div id="book-hotels" class="widget-wrapper">
-            <div class="widget-header">
-                <i class="fa-solid fa-hotel"></i> Hotels Only
-            </div>
+        <div id="panel-flights" class="search-panel active">
+            <script async src="https://tpwidg.com/content?currency=INR&trs=539546&shmarker=739406&show_hotels=false&powered_by=false&locale=en&searchUrl=search.travelnova.live&primary_override=%237B2CBF&color_button=%237B2CBF&color_icons=%237B2CBF&dark=%23030307&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%23E0AAFF&border_radius=16&plain=true" charset="utf-8"></script>
+        </div>
+
+        <div id="panel-hotels" class="search-panel">
             <script async src="https://www.travelpayouts.com/widgets/hotels_search_form.js?marker=739406&with_request=true&search_host=search.travelnova.live&locale=en&currency=inr&disable_header=true" charset="utf-8"></script>
         </div>
 
-    </div>
+    </main>
 
     <div class="modal-overlay" id="conciergeModal">
         <div class="modal-card">
-            <i class="fa-solid fa-headset main-icon" style="color: #7B2CBF;"></i>
-            <h2>TravelNova Premium Support</h2>
-            <p>Need custom routes, premium upgrades, or instant booking assistance? Connect directly with our luxury travel desk on WhatsApp.</p>
-            <a href="https://wa.me/91XXXXXXXXXX?text=Hello%20TravelNova!%20I%20want%20to%20book%20a%20custom%20premium%20option.%20Please%20guide%20me." class="whatsapp-action-btn" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> Start Chat Now
+            <i class="fa-solid fa-bezier-curve main-icon" style="color: #00d2ff;"></i>
+            <h2>TravelNova Premium Desk</h2>
+            <p style="color: var(--text-dim); margin-top: 0.5rem;">Need personal customization or enterprise booking support? Chat live with our premium travel manager.</p>
+            <a href="https://wa.me/91XXXXXXXXXX?text=Hello%20TravelNova!%20I%20am%20looking%20for%20premium%20travel%20assistance." class="whatsapp-action-btn" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Connect Instantly
             </a>
             <br>
-            <button class="close-modal" onclick="toggleModal(false)">Back to Search</button>
+            <button class="close-modal" onclick="toggleModal(false)">Return to Search</button>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 TravelNova. All Rights Reserved.</p>
+        <p>&copy; 2026 TravelNova. Redefining Global Journeys.</p>
     </footer>
 
     <script>
+        function switchTab(tabId) {
+            // 1. Remove active state from all elements
+            document.querySelectorAll('.tab-trigger').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.search-panel').forEach(panel => panel.classList.remove('active'));
+
+            // 2. Add active state to selected targets
+            const targetTrigger = document.querySelector(.tab-trigger[data-tab="${tabId}"]);
+            if(targetTrigger) targetTrigger.classList.add('active');
+
+            // Find matching navbar button and highlight it
+            const navButtons = document.querySelectorAll('.nav-btn');
+            if(tabId === 'flights') navButtons[0].classList.add('active');
+            if(tabId === 'hotels') navButtons[1].classList.add('active');
+
+            // Show current container box
+            const targetPanel = document.getElementById(panel-${tabId});
+            if(targetPanel) targetPanel.classList.add('active');
+        }
+
         function toggleModal(show) {
             const modal = document.getElementById('conciergeModal');
             if(show) {
