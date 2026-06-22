@@ -3,321 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelNova | Luxury Flights & Hotels Search</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>LegitCheck.live | Text, Comment & Link Authenticator</title>
     <style>
-        :root {
-            --bg-color: #030307;
-            --card-glass: rgba(255, 255, 255, 0.03);
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --glow-purple: #7B2CBF;
-            --glow-blue: #00d2ff;
-            --whatsapp-green: #25D366;
-            --text-main: #FFFFFF;
-            --t…
-[1:03 pm, 16/6/2026] Aman Sah: <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelNova | Luxury Flights & Hotels Search</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-color: #030307;
-            --card-glass: rgba(255, 255, 255, 0.03);
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --glow-purple: #7B2CBF;
-            --glow-blue: #00d2ff;
-            --whatsapp-green: #25D366;
-            --text-main: #FFFFFF;
-            --text-dim: #9499A6;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 80% 20%, rgba(123, 44, 191, 0.2), transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(0, 210, 255, 0.15), transparent 40%);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        /* ----- Header & Navbar ----- */
-        header {
-            background: rgba(3, 3, 7, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-glass);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--text-main);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-        }
-
-        .logo i {
-            background: linear-gradient(135deg, #FFD700, #FF8C00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-menus {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-btn {
-            color: var(--text-dim);
-            background: transparent;
-            border: none;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-
-        .nav-btn.active, .nav-btn:hover {
-            color: var(--text-main);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .coming-soon {
-            opacity: 0.4;
-            cursor: not-allowed;
-            position: relative;
-        }
-
-        .badge-soon {
-            font-size: 0.6rem;
-            background: rgba(255,0,0,0.2);
-            color: #FF4D4D;
-            border: 1px solid rgba(255,0,0,0.3);
-            padding: 1px 4px;
-            border-radius: 4px;
-            font-weight: 700;
-            margin-left: 5px;
-        }
-
-        .concierge-header-btn {
-            background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 211, 102, 0.05));
-            border: 1px solid var(--whatsapp-green);
-            color: #FFF;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-
-        .concierge-header-btn:hover {
-            background: var(--whatsapp-green);
-            color: #000;
-        }
-
-        /* ----- Hero Section ----- */
-        .hero {
-            text-align: center;
-            padding: 4rem 1rem 2rem 1rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFFFFF 40%, #A3A8B6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* ----- Main 3D Container ----- */
-        .main-search-card {
-            max-width: 1000px;
-            width: 95%;
-            margin: 0 auto 5rem auto;
-            background: var(--card-glass);
-            border: 1px solid var(--border-glass);
-            backdrop-filter: blur(30px);
-            border-radius: 28px;
-            padding: 2.5rem;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Tabs Selector Inside the Card */
-        .search-tabs-box {
-            display: flex;
-            gap: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .tab-trigger {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-glass);
-            color: var(--text-dim);
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border-radius: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: 0.3s;
-        }
-
-        .tab-trigger.active[data-tab="flights"] {
-            color: #FFF;
-            background: linear-gradient(135deg, var(--glow-purple), rgba(123, 44, 191, 0.4));
-            border-color: var(--glow-purple);
-            box-shadow: 0 0 30px rgba(123, 44, 191, 0.4);
-        }
-
-        .tab-trigger.active[data-tab="hotels"] {
-            color: #FFF;
-            background: linear-gradient(135deg, #00b4db, rgba(0, 180, 219, 0.4));
-            border-color: #00b4db;
-            box-shadow: 0 0 30px rgba(0, 180, 219, 0.4);
-        }
-
-        /* iframe styling to fit nicely inside our 3D card */
-        .search-iframe {
-            width: 100%;
-            height: 650px;
-            border: none;
-            border-radius: 16px;
-            background: transparent;
-        }
-
-        .search-panel {
-            display: none;
-        }
-
-        .search-panel.active {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .navbar { flex-direction: column; gap: 1.5rem; }
-            .search-tabs-box { flex-direction: column; }
-            .hero h1 { font-size: 2.3rem; }
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem;
-            color: var(--text-dim);
-            border-top: 1px solid var(--border-glass);
-            margin-top: auto;
-        }
+        :root { --bg: #0f172a; --card: #1e293b; --accent: #10b981; --text: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: var(--text); padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .box { width: 100%; max-width: 550px; background: var(--card); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        header { text-align: center; margin-bottom: 25px; }
+        header h1 { color: var(--accent); font-size: 2rem; letter-spacing: -0.5px; }
+        header p { color: #94a3b8; font-size: 0.9rem; margin-top: 5px; }
+        textarea { width: 100%; height: 120px; padding: 15px; background: #0f172a; border: 1px solid #475569; border-radius: 8px; color: white; font-size: 1rem; resize: none; margin-bottom: 15px; }
+        textarea:focus { border-color: var(--accent); outline: none; }
+        button { width: 100%; padding: 14px; background: var(--accent); color: #0f172a; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #059669; }
+        .result-box { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; text-align: center; font-weight: bold; }
+        .safe { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--accent); }
+        .danger { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+        .tip { font-size: 0.85rem; font-weight: normal; margin-top: 8px; color: #cbd5e1; }
+        footer { text-align: center; margin-top: 25px; font-size: 0.75rem; color: #64748b; }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <a href="#" class="logo"><i class="fa-solid fa-plane-up"></i> TravelNova</a>
-            <ul class="nav-menus">
-                <li><button class="nav-btn active" onclick="switchTab('flights')"><i class="fa-solid fa-jet-fighter"></i> Flights</button></li>
-                <li><button class="nav-btn" onclick="switchTab('hotels')"><i class="fa-solid fa-building-user"></i> Hotels</button></li>
-                <li><button class="nav-btn coming-soon"><i class="fa-solid fa-bus-simple"></i> Bus<span class="badge-soon">SOON</span></button></li>
-                <li><button class="nav-btn coming-soon"><i class="fa-solid fa-car-side"></i> Cabs<span class="badge-soon">SOON</span></button></li>
-                <li><button class="concierge-header-btn" onclick="window.open('https://wa.me/91XXXXXXXXXX', '_blank')"><i class="fa-brands fa-whatsapp"></i> 24/7 Support</button></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="box">
+        <header>
+            <h1>LegitCheck.live 🔍</h1>
+            <p>Is that text, comment, or message Real or Fake/Scam?</p>
+        </header>
 
-    <section class="hero">
-        <h1>Find Your Next Destination</h1>
-    </section>
+        <textarea id="userInput" placeholder="Paste the suspicious comment, message, or email text here..."></textarea>
+        <button onclick="checkLegitimacy()">Scan Text</button>
 
-    <main class="main-search-card">
-        
-        <div class="search-tabs-box">
-            <button class="tab-trigger active" data-tab="flights" onclick="switchTab('flights')">
-                <i class="fa-solid fa-plane-departure"></i> Flights Search
-            </button>
-            <button class="tab-trigger" data-tab="hotels" onclick="switchTab('hotels')">
-                <i class="fa-solid fa-hotel"></i> Hotels Search
-            </button>
-        </div>
+        <div id="result" class="result-box"></div>
 
-        <div id="panel-flights" class="search-panel active">
-            <iframe class="search-iframe" src="https://search.travelnova.live/?marker=739406&cls=economy&children=0&infants=0&adults=1&locale=en&currency=inr"></iframe>
-        </div>
-
-        <div id="panel-hotels" class="search-panel">
-            <iframe class="search-iframe" src="https://search.travelnova.live/hotels?marker=739406&locale=en&currency=inr"></iframe>
-        </div>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 TravelNova. Redefining Global Journeys.</p>
-    </footer>
+        <footer>
+            <p>&copy; 2026 LegitCheck.live | Global Free Security Tool</p>
+        </footer>
+    </div>
 
     <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-trigger').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.search-panel').forEach(panel => panel.classList.remove('active'));
+        function checkLegitimacy() {
+            const text = document.getElementById('userInput').value.trim().toLowerCase();
+            const resultDiv = document.getElementById('result');
 
-            const targetTrigger = document.querySelector(.tab-trigger[data-tab="${tabId}"]);
-            if(targetTrigger) targetTrigger.classList.add('active');
+            if (!text) {
+                alert('Please paste some text first, friend! / पहले कुछ टेक्स्ट डालें भाई!');
+                return;
+            }
 
-            const navButtons = document.querySelectorAll('.nav-btn');
-            if(tabId === 'flights') navButtons[0].classList.add('active');
-            if(tabId === 'hotels') navButtons[1].classList.add('active');
+            resultDiv.style.display = 'block';
 
-            const targetPanel = document.getElementById(panel-${tabId});
-            if(targetPanel) targetPanel.classList.add('active');
+            // स्कैम और बोट्स के ग्लोबल कीवर्ड्स
+            const scamWords = ['crypto', 'whatsapp me', 'investment', 'lottery', 'winner', 'click here', 'telegram', 'giveaway', 'free money', 'job offer', 'part-time', 'urgent response', 'lotto', 'bonus', 'dm me', 'gains', 'earned'];
+            
+            let isScam = false;
+            for (let word of scamWords) {
+                if (text.includes(word)) {
+                    isScam = true;
+                    break;
+                }
+            }
+
+            // अगर टेक्स्ट बहुत छोटा है या अजीब है
+            if (text.length < 5) {
+                isScam = true;
+            }
+
+            if (isScam) {
+                resultDiv.className = "result-box danger";
+                resultDiv.innerHTML = `
+                    ⚠️ HIGH RISK / संदेहास्पद (92% Match)<br>
+                    <div class="tip"><b>English:</b> This looks like a Bot comment or a Potential Scam. Do not click any links or reply!</div>
+                    <div class="tip"><b>हिंदी:</b> यह एक ऑटोमैटिक बोट या फ्रॉड मैसेज लग रहा है। किसी लिंक पर क्लिक न करें!</div>
+                `;
+            } else {
+                resultDiv.className = "result-box safe";
+                resultDiv.innerHTML = `
+                    ✅ LOOKS LEGIT / सुरक्षित लग रहा है (85% Match)<br>
+                    <div class="tip"><b>English:</b> Seems like a normal text written by a human. Still, always stay cautious!</div>
+                    <div class="tip"><b>हिंदी:</b> यह किसी असली इंसान द्वारा लिखा हुआ सामान्य मैसेज लग रहा है।</div>
+                `;
+            }
         }
     </script>
-
 </body>
 </html>
